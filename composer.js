@@ -18,19 +18,30 @@ import { Pool, defaultPool } from 'https://nostr-client.github.io/pool/pool.js'
 
 const TEMPLATE = /* html */ `
 <style>
-  :host { display: block; font-family: system-ui, sans-serif; font-size: .95rem; }
-  form { display: grid; gap: .5rem; border: 1px solid rgba(127,127,127,.3);
-    border-radius: 12px; padding: .8rem; }
-  textarea { font: inherit; padding: .5em .6em; border-radius: 8px; min-height: 4em;
-    border: 1px solid rgba(127,127,127,.4); background: transparent; color: inherit;
-    resize: vertical; width: 100%; box-sizing: border-box; }
+  :host { display: block;
+    font-family: var(--nc-font, ui-sans-serif, system-ui, sans-serif);
+    font-size: .95rem; color: var(--nc-ink, #201d26); }
+  form { display: grid; gap: .6rem; padding: .9rem 1rem;
+    background: var(--nc-surface, #fff);
+    border: 1px solid var(--nc-line, #e9e6e0);
+    border-radius: var(--nc-radius, 14px);
+    box-shadow: var(--nc-shadow, 0 1px 2px rgb(32 27 51 / 4%), 0 6px 24px -10px rgb(32 27 51 / 10%)); }
+  textarea { font: inherit; padding: .6em .7em; border-radius: var(--nc-radius-sm, 9px);
+    min-height: 4.2em; border: 1px solid var(--nc-line, #e9e6e0);
+    background: var(--nc-inset, #f4f2ee); color: inherit;
+    resize: vertical; width: 100%; box-sizing: border-box; line-height: 1.5; }
+  textarea:focus { outline: 2px solid var(--nc-accent-soft, #f2ecfd);
+    border-color: var(--nc-accent, #7c3aed); }
   .row { display: flex; justify-content: space-between; align-items: center; gap: .6rem; }
-  .count { font-size: .75rem; opacity: .55; }
-  button { font: inherit; cursor: pointer; border-radius: 8px; padding: .45em 1.2em;
-    border: 1px solid rgba(127,127,127,.4);
-    background: var(--nostr-accent, #8e30eb); color: #fff; }
-  button:disabled { opacity: .5; cursor: default; }
-  .status { font-size: .8rem; white-space: pre-wrap; }
+  .count { font-size: .75rem; color: var(--nc-faint, #a8a4b0); }
+  button { font: inherit; cursor: pointer; border: none; border-radius: 999px;
+    padding: .5em 1.4em; font-weight: 600;
+    background: var(--nc-accent, #7c3aed); color: var(--nc-accent-ink, #fff);
+    transition: filter .15s ease, transform .15s ease; }
+  button:hover { filter: brightness(1.08); }
+  button:active { transform: translateY(1px); }
+  button:disabled { opacity: .45; cursor: default; filter: none; }
+  .status { font-size: .8rem; white-space: pre-wrap; color: var(--nc-soft, #6d6a76); }
 </style>
 <form>
   <textarea id="text"></textarea>
