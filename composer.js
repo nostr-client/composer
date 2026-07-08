@@ -84,6 +84,14 @@ class NostrComposer extends HTMLElement {
     window.removeEventListener('nostr:logout', this._onLogout)
   }
 
+  /** Append text to the draft and focus — used by quote/mention flows. */
+  insert(text) {
+    const cur = this.text.value
+    this.text.value = cur ? cur.replace(/\s*$/, '') + '\n\n' + text : text
+    this.text.dispatchEvent(new Event('input'))
+    this.text.focus()
+  }
+
   get _signer() { return this.signer || window.nostrSigner }
 
   get _pool() {
