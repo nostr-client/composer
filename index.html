@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>composer — nostr note composer demo</title>
+<style>
+  :root { color-scheme: light dark; }
+  body { font-family: system-ui, sans-serif; max-width: 42rem; margin: 2rem auto; padding: 0 1rem; line-height: 1.5; }
+  h1 { font-size: 1.4rem; } h1 a { text-decoration: none; }
+  code, pre { background: rgba(127,127,127,.12); border-radius: 4px; padding: .1em .3em; }
+  pre { padding: .75em; overflow-x: auto; }
+  header { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
+</style>
+</head>
+<body>
+<header>
+  <h1><a href="https://github.com/nostr-client/composer">nostr-client / composer</a></h1>
+  <nostr-login></nostr-login>
+</header>
+
+<p>Login + composer, two repos, one contract. Log in (a guest key is fine),
+write, publish:</p>
+
+<pre>&lt;script type="module" src="https://nostr-client.github.io/login/login.js"&gt;&lt;/script&gt;
+&lt;script type="module" src="https://nostr-client.github.io/composer/composer.js"&gt;&lt;/script&gt;
+
+&lt;nostr-login&gt;&lt;/nostr-login&gt;
+&lt;nostr-composer&gt;&lt;/nostr-composer&gt;</pre>
+
+<nostr-composer placeholder="Say hello from a no-build nostr client…"></nostr-composer>
+
+<script type="module" src="https://nostr-client.github.io/login/login.js"></script>
+<script type="module" src="./composer.js"></script>
+</body>
+</html>
