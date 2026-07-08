@@ -15,7 +15,7 @@ nostr client where each repo does one thing.
 <script type="module" src="https://nostr-client.github.io/composer/composer.js"></script>
 
 <nostr-login></nostr-login>
-<nostr-composer placeholder="What's happening?"></nostr-composer>
+<nostr-composer placeholder="What's happening?" button-label="Post"></nostr-composer>
 ```
 
 - signer: `window.nostrSigner` / `nostr:login` events (or set the `.signer` property)
