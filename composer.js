@@ -69,6 +69,7 @@ class NostrComposer extends HTMLElement {
 
   connectedCallback() {
     this.text.placeholder = this.getAttribute('placeholder') || "What's happening?"
+    this.send.textContent = this.getAttribute('button-label') || 'Publish'
     window.addEventListener('nostr:login', this._onLogin)
     window.addEventListener('nostr:logout', this._onLogout)
     this.text.addEventListener('input', () => {
